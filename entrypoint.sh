@@ -38,6 +38,7 @@ cd $GITHUB_WORKSPACE
 
 # Upload the app to MobSF.
 echo "[/api/v1/upload] Upload the app to MobSF"
+echo curl -F file=@${INPUT_FILE_NAME} ${MOBSF_URL}/api/v1/upload -H "Authorization:${MOBSF_API_KEY}"
 RESPONSE=$(curl -F file=@${INPUT_FILE_NAME} ${MOBSF_URL}/api/v1/upload -H "Authorization:${MOBSF_API_KEY}")
 # use 'jq' to search the values by keys in the json response.
 FILE_NAME=$(echo "${RESPONSE}" | jq -r .file_name)
