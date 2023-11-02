@@ -48,6 +48,7 @@ SCAN_TYPE=$(echo "${RESPONSE}" | jq -r .scan_type)
 FILE_NAME=${FILE_NAME%%*( )}
 HASH=${HASH%%*( )}
 SCAN_TYPE=${SCAN_TYPE%%*( )}
+echo "DEBUG: $RESPONSE"
 echo "[/api/v1/upload] Received: FILE_NAME=${FILE_NAME}, HASH=${HASH}, SCAN_TYPE=${SCAN_TYPE}"
 
 # Start the scan.
